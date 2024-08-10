@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const userController = require("../controllers/userController");
+const itemController = require("../controllers/itemController");
 const userRouter = Router();
 
 userRouter.get("/", function (req, res) {
