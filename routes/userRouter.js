@@ -8,4 +8,6 @@ const userRouter = Router();
 
 userRouter.get("/", indexController.inventoryPageGet);
 
+userRouter.get("/items", itemController.itemsGet);
+
 module.exports = userRouter;
