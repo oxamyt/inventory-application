@@ -8,3 +8,7 @@ async function manufacturersGet(req, res) {
     console.error(err);
   }
 }
+
+module.exports = {
+  manufacturersGet,
+};

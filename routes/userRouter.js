@@ -1,9 +1,11 @@
 const { Router } = require("express");
+const indexController = require("../controllers/indexController");
 const itemController = require("../controllers/itemController");
+const categoryController = require("../controllers/categoryController");
+const typeController = require("../controllers/typeController");
+const manufacturerController = require("../controllers/manufacturerController");
 const userRouter = Router();
 
-userRouter.get("/", function (req, res) {
-  res.send("Hello world!");
-});
+userRouter.get("/", indexController.inventoryPageGet);
 
 module.exports = userRouter;

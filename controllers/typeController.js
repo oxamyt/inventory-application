@@ -8,3 +8,7 @@ async function typesGet(req, res) {
     console.error(err);
   }
 }
+
+module.exports = {
+  typesGet,
+};

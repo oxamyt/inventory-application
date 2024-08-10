@@ -8,3 +8,5 @@ async function categoriesGet(req, res) {
     console.error(err);
   }
 }
+
+module.exports = { categoriesGet };

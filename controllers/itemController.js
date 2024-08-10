@@ -8,3 +8,7 @@ async function itemsGet(req, res) {
     console.error(err);
   }
 }
+
+module.exports = {
+  itemsGet,
+};
