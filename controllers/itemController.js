@@ -22,7 +22,7 @@ async function getForm(req, res) {
   }
 }
 
-async function postFOrm(req, res) {
+async function postForm(req, res) {
   const {
     name,
     description,
@@ -31,6 +31,7 @@ async function postFOrm(req, res) {
     category_id,
     manufacturer_id,
     type_id,
+    image_url,
   } = req.body;
 
   try {
@@ -41,10 +42,11 @@ async function postFOrm(req, res) {
       stock_quantity,
       category_id,
       manufacturer_id,
-      type_id
+      type_id,
+      image_url
     );
 
-    res.redirect("/");
+    res.redirect("/items");
   } catch (err) {
     console.error(err);
   }
@@ -53,4 +55,5 @@ async function postFOrm(req, res) {
 module.exports = {
   itemsGet,
   getForm,
+  postForm,
 };

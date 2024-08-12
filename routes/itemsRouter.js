@@ -7,4 +7,6 @@ itemsRouter.get("/", itemController.itemsGet);
 
 itemsRouter.get("/new", itemController.getForm);
 
+itemsRouter.post("/new", itemController.postForm);
+
 module.exports = itemsRouter;

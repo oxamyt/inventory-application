@@ -32,10 +32,44 @@ async function getFormData() {
   return { categories, manufacturers, types };
 }
 
+async function insertItems(
+  name,
+  description,
+  price,
+  stock_quantity,
+  category_id,
+  manufacturer_id,
+  type_id,
+  image_url
+) {
+  const insertQuery =
+    "INSERT INTO items (name, description, price, stock_quantity, category_id, manufacturer_id, type_id,image_url) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)";
+  const values = [
+    name,
+    description,
+    price,
+    stock_quantity,
+    category_id,
+    manufacturer_id,
+    type_id,
+    image_url,
+  ];
+  await pool.query(insertQuery, values);
+}
+
+async function insertTypes(name, description, image_url) {
+  const insertQuery =
+    "INSERT INTO types (name,description,image_url) VALUES($1,$2,$3)";
+  const values = [name, description, image_url];
+  await pool.query(insertQuery, values);
+}
+
 module.exports = {
   getItems,
   getCategories,
   getManufacturers,
   getTypes,
   getFormData,
+  insertItems,
+  insertTypes,
 };

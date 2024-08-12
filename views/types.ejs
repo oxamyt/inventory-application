@@ -8,15 +8,10 @@
   <body>
     <ul>
       <% types.forEach((type) => { %>
-      <li class="manufacturer">
-        <h1>type: <%= type.name %></h1>
+      <li class="type">
+        <h1>Type: <%= type.name %></h1>
         <h2><%= type.description %></h2>
-        <img
-          src="`${manufacturer.image_url}`"
-          alt="`image"
-          of
-          ${manufacturer.name}`
-        />
+        <img src="<%= type.image_url %>" alt="Image of <%= type.name %>" />
       </li>
       <% }) %>
     </ul>
