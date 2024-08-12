@@ -5,4 +5,6 @@ const itemsRouter = Router();
 
 itemsRouter.get("/", itemController.itemsGet);
 
+itemsRouter.get("/new", itemController.getForm);
+
 module.exports = itemsRouter;

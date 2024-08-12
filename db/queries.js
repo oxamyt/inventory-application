@@ -24,4 +24,18 @@ async function getTypes() {
   return rows;
 }
 
-module.exports = { getItems, getCategories, getManufacturers, getTypes };
+async function getFormData() {
+  const categories = await pool.query("SELECT id, name FROM categories");
+  const manufacturers = await pool.query("SELECT id, name FROM manufacturers");
+  const types = await pool.query("SELECT id, name FROM types");
+
+  return { categories, manufacturers, types };
+}
+
+module.exports = {
+  getItems,
+  getCategories,
+  getManufacturers,
+  getTypes,
+  getFormData,
+};
