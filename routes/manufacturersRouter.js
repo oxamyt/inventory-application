@@ -9,4 +9,8 @@ manufacturersRouter.get("/new", manufacturerController.getForm);
 
 manufacturersRouter.post("/new", manufacturerController.postForm);
 
+manufacturersRouter.get("/:id/edit", manufacturerController.getUpdateForm);
+
+manufacturersRouter.post("/:id/edit", manufacturerController.postUpdateForm);
+
 module.exports = manufacturersRouter;

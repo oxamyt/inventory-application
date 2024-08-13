@@ -134,6 +134,13 @@ async function updateCategories(id, name, description, image_url) {
   await pool.query(updateQuery, values);
 }
 
+async function updateManufacturers(id, name, country, image_url) {
+  const updateQuery = `UPDATE manufacturers SET name = $1, country = $2, image_url = $3 WHERE id = $4`;
+  const values = [name, country, image_url, id];
+
+  await pool.query(updateQuery, values);
+}
+
 module.exports = {
   getItems,
   getCategories,
@@ -148,4 +155,5 @@ module.exports = {
   updateItems,
   updateTypes,
   updateCategories,
+  updateManufacturers,
 };
