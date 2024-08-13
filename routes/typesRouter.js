@@ -9,4 +9,8 @@ typesRouter.get("/new", typeController.getForm);
 
 typesRouter.post("/new", typeController.postForm);
 
+typesRouter.get("/:id/edit", typeController.getUpdateForm);
+
+typesRouter.post("/:id/edit", typeController.postUpdateForm);
+
 module.exports = typesRouter;

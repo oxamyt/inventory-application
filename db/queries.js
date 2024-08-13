@@ -32,8 +32,8 @@ async function getFormData() {
   return { categories, manufacturers, types };
 }
 
-async function getItemById(id) {
-  const getQuery = `SELECT * FROM items WHERE id = ${id}`;
+async function getById(id, table) {
+  const getQuery = `SELECT * FROM ${table} WHERE id = ${id}`;
   const { rows } = await pool.query(getQuery);
   return rows;
 }
@@ -116,16 +116,28 @@ async function updateItems(
   await pool.query(updateQuery, values);
 }
 
+async function updateTypes(id, name, description, image_url) {
+  const updateQuery = `
+    UPDATE types
+    SET name = $1, description = $2, image_url = $3
+    WHERE id = $4
+  `;
+  const values = [name, description, image_url, id];
+
+  await pool.query(updateQuery, values);
+}
+
 module.exports = {
   getItems,
   getCategories,
   getManufacturers,
   getTypes,
   getFormData,
-  getItemById,
+  getById,
   insertItems,
   insertTypes,
   insertCategories,
   insertManufacturers,
   updateItems,
+  updateTypes,
 };

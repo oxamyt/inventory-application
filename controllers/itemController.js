@@ -54,7 +54,7 @@ async function postForm(req, res) {
 
 async function getUpdateForm(req, res) {
   try {
-    const itemResult = await db.getItemById(req.params.id);
+    const itemResult = await db.getById(req.params.id, "items");
     const item = itemResult[0];
     const { categories, manufacturers, types } = await db.getFormData();
     res.render("itemUpdateForm", {
