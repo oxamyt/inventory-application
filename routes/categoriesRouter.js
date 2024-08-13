@@ -9,4 +9,8 @@ categoriesRouter.get("/new", categoryController.getForm);
 
 categoriesRouter.post("/new", categoryController.postForm);
 
+categoriesRouter.get("/:id/edit", categoryController.getUpdateForm);
+
+categoriesRouter.post("/:id/edit", categoryController.postUpdateForm);
+
 module.exports = categoriesRouter;

@@ -28,4 +28,34 @@ async function postForm(req, res) {
   }
 }
 
-module.exports = { categoriesGet, getForm, postForm };
+async function getUpdateForm(req, res) {
+  try {
+    const categoryResult = await db.getById(req.params.id, "categories");
+    const category = categoryResult[0];
+    res.render("categoryUpdateForm", {
+      category: category,
+    });
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function postUpdateForm(req, res) {
+  try {
+    const { name, description, image_url } = req.body;
+
+    await db.updateCategories(req.params.id, name, description, image_url);
+
+    res.redirect("/categories");
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+module.exports = {
+  categoriesGet,
+  getForm,
+  postForm,
+  getUpdateForm,
+  postUpdateForm,
+};
