@@ -9,4 +9,8 @@ itemsRouter.get("/new", itemController.getForm);
 
 itemsRouter.post("/new", itemController.postForm);
 
+itemsRouter.get("/:id/edit", itemController.getUpdateForm);
+
+itemsRouter.post("/:id/edit", itemController.postUpdateForm);
+
 module.exports = itemsRouter;

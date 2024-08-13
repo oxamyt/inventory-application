@@ -52,8 +52,57 @@ async function postForm(req, res) {
   }
 }
 
+async function getUpdateForm(req, res) {
+  try {
+    const itemResult = await db.getItemById(req.params.id);
+    const item = itemResult[0];
+    const { categories, manufacturers, types } = await db.getFormData();
+    res.render("itemUpdateForm", {
+      item,
+      categories: categories.rows,
+      manufacturers: manufacturers.rows,
+      types: types.rows,
+    });
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function postUpdateForm(req, res) {
+  try {
+    const {
+      name,
+      description,
+      price,
+      stock_quantity,
+      category_id,
+      manufacturer_id,
+      type_id,
+      image_url,
+    } = req.body;
+
+    await db.updateItems(
+      req.params.id,
+      name,
+      description,
+      price,
+      stock_quantity,
+      category_id,
+      manufacturer_id,
+      type_id,
+      image_url
+    );
+
+    res.redirect("/items");
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 module.exports = {
   itemsGet,
   getForm,
   postForm,
+  getUpdateForm,
+  postUpdateForm,
 };

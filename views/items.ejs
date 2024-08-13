@@ -10,9 +10,10 @@
       <% items.forEach((item) => { %>
       <li class="item">
         <h1>Item: <%= item.name %></h1>
-        <h2><%= item.price %></h2>
-        <p><%= item.description %></p>
-        <h2><%= item.stock_quantity %></h2>
+        <h2>Price: <%= item.price %>$</h2>
+        <p>Description: <%= item.description %></p>
+        <h2>Stock Quantity: <%= item.stock_quantity %></h2>
+        <img src="<%= item.image_url %>" alt="image of <%= item.name %>" />
       </li>
       <% }) %>
     </ul>

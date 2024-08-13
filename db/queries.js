@@ -32,6 +32,12 @@ async function getFormData() {
   return { categories, manufacturers, types };
 }
 
+async function getItemById(id) {
+  const getQuery = `SELECT * FROM items WHERE id = ${id}`;
+  const { rows } = await pool.query(getQuery);
+  return rows;
+}
+
 async function insertItems(
   name,
   description,
@@ -116,6 +122,7 @@ module.exports = {
   getManufacturers,
   getTypes,
   getFormData,
+  getItemById,
   insertItems,
   insertTypes,
   insertCategories,
