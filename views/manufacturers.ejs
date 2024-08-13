@@ -3,19 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Manufacturers list</title>
+    <title>Manufacturers List</title>
   </head>
   <body>
     <ul>
       <% manufacturers.forEach((manufacturer) => { %>
       <li class="manufacturer">
-        <h1>manufacturer: <%= manufacturer.name %></h1>
-        <h2><%= manufacturer.country %></h2>
+        <h1>Manufacturer: <%= manufacturer.name %></h1>
+        <h2>Country: <%= manufacturer.country %></h2>
         <img
-          src="`${manufacturer.image_url}`"
-          alt="`image"
-          of
-          ${manufacturer.name}`
+          src="<%= manufacturer.image_url %>"
+          alt="Image of <%= manufacturer.name %>"
         />
       </li>
       <% }) %>

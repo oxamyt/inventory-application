@@ -9,6 +9,28 @@ async function manufacturersGet(req, res) {
   }
 }
 
+async function getForm(req, res) {
+  try {
+    res.render("manufacturersForm");
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function postForm(req, res) {
+  const { name, country, image_url } = req.body;
+
+  try {
+    await db.insertManufacturers(name, country, image_url);
+
+    res.redirect("/manufacturers");
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 module.exports = {
   manufacturersGet,
+  getForm,
+  postForm,
 };

@@ -64,6 +64,52 @@ async function insertTypes(name, description, image_url) {
   await pool.query(insertQuery, values);
 }
 
+async function insertCategories(name, description, image_url) {
+  const insertQuery =
+    "INSERT INTO categories (name,description,image_url) VALUES ($1,$2,$3)";
+  const values = [name, description, image_url];
+  await pool.query(insertQuery, values);
+}
+
+async function insertManufacturers(name, country, image_url) {
+  const insertQuery =
+    "INSERT INTO manufacturers (name,country,image_url) VALUES ($1,$2,$3)";
+  const values = [name, country, image_url];
+  await pool.query(insertQuery, values);
+}
+
+async function updateItems(
+  id,
+  name,
+  description,
+  price,
+  stock_quantity,
+  category_id,
+  manufacturer_id,
+  type_id,
+  image_url
+) {
+  const updateQuery = `
+    UPDATE items
+    SET name = $1, description = $2, price = $3, stock_quantity = $4, category_id = $5,
+        manufacturer_id = $6, type_id = $7, image_url = $8
+    WHERE id = $9
+  `;
+  const values = [
+    name,
+    description,
+    price,
+    stock_quantity,
+    category_id,
+    manufacturer_id,
+    type_id,
+    image_url,
+    id,
+  ];
+
+  await pool.query(updateQuery, values);
+}
+
 module.exports = {
   getItems,
   getCategories,
@@ -72,4 +118,7 @@ module.exports = {
   getFormData,
   insertItems,
   insertTypes,
+  insertCategories,
+  insertManufacturers,
+  updateItems,
 };

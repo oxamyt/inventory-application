@@ -9,13 +9,11 @@
     <ul>
       <% categories.forEach((category) => { %>
       <li class="category">
-        <h1>Category: <%= categories.name %></h1>
-        <h2><%= categories.description %></h2>
+        <h1>Category: <%= category.name %></h1>
+        <h2><%= category.description %></h2>
         <img
-          src="`${categores.image_url}`"
-          alt="`image"
-          of
-          ${categories.name}`
+          src="<%= category.image_url %>"
+          alt="image of <%= category.name %>"
         />
       </li>
       <% }) %>
