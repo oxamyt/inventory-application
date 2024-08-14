@@ -15,6 +15,9 @@
           src="<%= category.image_url %>"
           alt="image of <%= category.name %>"
         />
+        <form action="/categories/<%= category.id %>/delete" method="post">
+          <button type="submit">Delete category</button>
+        </form>
       </li>
       <% }) %>
     </ul>

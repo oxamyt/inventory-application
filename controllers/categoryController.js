@@ -52,10 +52,21 @@ async function postUpdateForm(req, res) {
   }
 }
 
+async function postDeleteCategory(req, res) {
+  try {
+    const id = req.params.id;
+    await db.deleteById(id, "categories");
+    res.redirect("/categories");
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 module.exports = {
   categoriesGet,
   getForm,
   postForm,
   getUpdateForm,
   postUpdateForm,
+  postDeleteCategory,
 };
