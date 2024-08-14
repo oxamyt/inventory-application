@@ -6,6 +6,7 @@ const createTables = async () => {
       CREATE TABLE IF NOT EXISTS Categories (
         id SERIAL PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
+        image_url VARCHAR(255),
         description TEXT
       );
     `;
@@ -14,6 +15,7 @@ const createTables = async () => {
       CREATE TABLE IF NOT EXISTS Manufacturers (
         id SERIAL PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
+        image_url VARCHAR(255),
         country VARCHAR(255)
       );
     `;
@@ -22,7 +24,8 @@ const createTables = async () => {
       CREATE TABLE IF NOT EXISTS Types (
         id SERIAL PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
-        description TEXT
+        description TEXT,
+        image_url VARCHAR(255)
       );
     `;
 
@@ -33,9 +36,10 @@ const createTables = async () => {
         description TEXT,
         price DECIMAL(10, 2) NOT NULL,
         stock_quantity INT NOT NULL,
-        category_id INT REFERENCES Categories(id),
-        manufacturer_id INT REFERENCES Manufacturers(id),
-        type_id INT REFERENCES Types(id)
+        category_id INT REFERENCES Categories(id) ON DELETE CASCADE,
+        manufacturer_id INT REFERENCES Manufacturers(id) ON DELETE CASCADE,
+        type_id INT REFERENCES Types(id) ON DELETE CASCADE,
+        image_url VARCHAR(255)
       );
     `;
 

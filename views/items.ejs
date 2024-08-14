@@ -14,6 +14,9 @@
         <p>Description: <%= item.description %></p>
         <h2>Stock Quantity: <%= item.stock_quantity %></h2>
         <img src="<%= item.image_url %>" alt="image of <%= item.name %>" />
+        <form action="/items/<%= item.id %>/delete" method="post">
+          <button type="submit">Delete item</button>
+        </form>
       </li>
       <% }) %>
     </ul>

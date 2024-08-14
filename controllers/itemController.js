@@ -99,10 +99,21 @@ async function postUpdateForm(req, res) {
   }
 }
 
+async function postDeleteItem(req, res) {
+  try {
+    const id = req.params.id;
+    await db.deleteItem(id);
+    res.redirect("/items");
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 module.exports = {
   itemsGet,
   getForm,
   postForm,
   getUpdateForm,
   postUpdateForm,
+  postDeleteItem,
 };

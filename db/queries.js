@@ -141,6 +141,11 @@ async function updateManufacturers(id, name, country, image_url) {
   await pool.query(updateQuery, values);
 }
 
+async function deleteItem(id) {
+  const deleteQuery = "DELETE FROM items WHERE id = $1";
+  await pool.query(deleteQuery, [id]);
+}
+
 module.exports = {
   getItems,
   getCategories,
@@ -156,4 +161,5 @@ module.exports = {
   updateTypes,
   updateCategories,
   updateManufacturers,
+  deleteItem,
 };
