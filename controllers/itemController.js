@@ -102,7 +102,7 @@ async function postUpdateForm(req, res) {
 async function postDeleteItem(req, res) {
   try {
     const id = req.params.id;
-    await db.deleteItem(id);
+    await db.deleteById(id, "items");
     res.redirect("/items");
   } catch (err) {
     console.error(err);

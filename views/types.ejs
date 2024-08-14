@@ -12,6 +12,9 @@
         <h1>Type: <%= type.name %></h1>
         <h2><%= type.description %></h2>
         <img src="<%= type.image_url %>" alt="Image of <%= type.name %>" />
+        <form action="/types/<%= type.id %>/delete" method="post">
+          <button type="submit">Delete type</button>
+        </form>
       </li>
       <% }) %>
     </ul>

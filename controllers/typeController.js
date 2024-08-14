@@ -53,10 +53,22 @@ async function postUpdateForm(req, res) {
   }
 }
 
+async function postDeleteType(req, res) {
+  try {
+    const id = req.params.id;
+    await db.deleteById(id, "types");
+    res.redirect("/types");
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 module.exports = {
   typesGet,
   getForm,
   postForm,
   getUpdateForm,
   postUpdateForm,
+  postDeleteType,
+  postDeleteType,
 };
