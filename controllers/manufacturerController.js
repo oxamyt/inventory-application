@@ -53,10 +53,21 @@ async function postUpdateForm(req, res) {
   }
 }
 
+async function postDeleteManufacturer(req, res) {
+  try {
+    const id = req.params.id;
+    await db.deleteById(id, "manufacturers");
+    res.redirect("/manufacturers");
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 module.exports = {
   manufacturersGet,
   getForm,
   postForm,
   getUpdateForm,
   postUpdateForm,
+  postDeleteManufacturer,
 };

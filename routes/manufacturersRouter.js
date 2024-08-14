@@ -13,4 +13,9 @@ manufacturersRouter.get("/:id/edit", manufacturerController.getUpdateForm);
 
 manufacturersRouter.post("/:id/edit", manufacturerController.postUpdateForm);
 
+manufacturersRouter.post(
+  "/:id/delete",
+  manufacturerController.postDeleteManufacturer
+);
+
 module.exports = manufacturersRouter;
