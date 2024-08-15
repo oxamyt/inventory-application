@@ -1,6 +1,7 @@
 const db = require("../db/queries");
 require("dotenv").config();
-const { validationResult, body } = require("express-validator");
+const { validatePassword } = require("./validation");
+const { validationResult } = require("express-validator");
 
 async function categoriesGet(req, res) {
   try {
@@ -44,12 +45,7 @@ async function getUpdateForm(req, res) {
 }
 
 async function postUpdateForm(req, res) {
-  await body("password")
-    .notEmpty()
-    .withMessage("Admin password is required")
-    .custom((value) => value === process.env.ADMIN_PASSWORD)
-    .withMessage("Incorrect admin password")
-    .run(req);
+  await validatePassword[0].run(req);
 
   const errors = validationResult(req);
 
