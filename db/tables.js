@@ -4,7 +4,7 @@ const createTables = async () => {
   try {
     const createCategoryTable = `
       CREATE TABLE IF NOT EXISTS Categories (
-        id SERIAL PRIMARY KEY,
+        id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
         name VARCHAR(255) NOT NULL,
         image_url VARCHAR(255),
         description TEXT
@@ -13,7 +13,7 @@ const createTables = async () => {
 
     const createManufacturerTable = `
       CREATE TABLE IF NOT EXISTS Manufacturers (
-        id SERIAL PRIMARY KEY,
+        id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
         name VARCHAR(255) NOT NULL,
         image_url VARCHAR(255),
         country VARCHAR(255)
@@ -22,7 +22,7 @@ const createTables = async () => {
 
     const createTypeTable = `
       CREATE TABLE IF NOT EXISTS Types (
-        id SERIAL PRIMARY KEY,
+        id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
         name VARCHAR(255) NOT NULL,
         description TEXT,
         image_url VARCHAR(255)
@@ -31,7 +31,7 @@ const createTables = async () => {
 
     const createItemTable = `
       CREATE TABLE IF NOT EXISTS Items (
-        id SERIAL PRIMARY KEY,
+        id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
         name VARCHAR(255) NOT NULL,
         description TEXT,
         price DECIMAL(10, 2) NOT NULL,

@@ -17,6 +17,7 @@
         <form action="/items/<%= item.id %>/delete" method="post">
           <button type="submit">Delete item</button>
         </form>
+        <a href="/items/<%= item.id %>/edit">Update item</a>
       </li>
       <% }) %>
     </ul>

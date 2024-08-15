@@ -1,4 +1,6 @@
 const db = require("../db/queries");
+require("dotenv").config();
+const { validationResult, body } = require("express-validator");
 
 async function itemsGet(req, res) {
   try {
@@ -62,6 +64,7 @@ async function getUpdateForm(req, res) {
       categories: categories.rows,
       manufacturers: manufacturers.rows,
       types: types.rows,
+      errors: [],
     });
   } catch (err) {
     console.error(err);
@@ -69,6 +72,28 @@ async function getUpdateForm(req, res) {
 }
 
 async function postUpdateForm(req, res) {
+  await body("password")
+    .notEmpty()
+    .withMessage("Admin password is required")
+    .custom((value) => value === process.env.ADMIN_PASSWORD)
+    .withMessage("Incorrect admin password")
+    .run(req);
+
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const { categories, manufacturers, types } = await db.getFormData();
+    const itemResult = await db.getById(req.params.id, "items");
+    const item = itemResult[0];
+    return res.render("itemUpdateForm", {
+      item,
+      categories: categories.rows,
+      manufacturers: manufacturers.rows,
+      types: types.rows,
+      errors: errors.array(),
+    });
+  }
+
   try {
     const {
       name,

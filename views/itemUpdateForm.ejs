@@ -43,6 +43,15 @@
         <label for="image_url">Image URL:</label>
         <input type="text" id="image_url" name="image_url" value="<%= item.image_url %>" required>
 
+        <%- include('partials/password') %>
+        <% if (errors) { %>
+            <div class="errors">
+                <% errors.forEach(error => { %>
+                    <p><%= error.msg %></p>
+                <% }) %>
+            </div>
+        <% } %>
+
         <button type="submit">Update Item</button>
     </form>
 </body>
