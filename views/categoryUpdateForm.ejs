@@ -30,6 +30,14 @@
         required
       />
 
+      <%- include('partials/password') %> <% if (errors) { %>
+      <div class="errors">
+        <% errors.forEach(error => { %>
+        <p><%= error.msg %></p>
+        <% }) %>
+      </div>
+      <% } %>
+
       <button type="submit">Update Type</button>
     </form>
   </body>
