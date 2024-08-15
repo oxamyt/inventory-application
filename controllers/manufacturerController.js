@@ -1,4 +1,6 @@
 const db = require("../db/queries");
+require("dotenv").config();
+const { validationResult, body } = require("express-validator");
 
 async function manufacturersGet(req, res) {
   try {
@@ -35,6 +37,7 @@ async function getUpdateForm(req, res) {
     const manufacturer = manufacturerResult[0];
     res.render("manufacturerUpdateForm", {
       manufacturer: manufacturer,
+      errors: [],
     });
   } catch (err) {
     console.error(err);
@@ -42,6 +45,24 @@ async function getUpdateForm(req, res) {
 }
 
 async function postUpdateForm(req, res) {
+  await body("password")
+    .notEmpty()
+    .withMessage("Admin password is required")
+    .custom((value) => value === process.env.ADMIN_PASSWORD)
+    .withMessage("Incorrect admin password")
+    .run(req);
+
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const manufacturerResult = await db.getById(req.params.id, "manufacturers");
+    const manufacturer = manufacturerResult[0];
+    return res.render("manufacturerUpdateForm", {
+      manufacturer,
+      errors: errors.array(),
+    });
+  }
+
   try {
     const { name, country, image_url } = req.body;
 
