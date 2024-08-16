@@ -146,6 +146,17 @@ async function deleteById(id, table) {
   await pool.query(deleteQuery, [id]);
 }
 
+async function getItemsByType(typeId) {
+  try {
+    const getQuery = `SELECT * FROM items WHERE type_id = $1`;
+    const { rows } = await pool.query(getQuery, [typeId]);
+    return rows;
+  } catch (err) {
+    console.error("Error fetching items by type:", err);
+    throw err;
+  }
+}
+
 module.exports = {
   getItems,
   getCategories,
@@ -162,4 +173,5 @@ module.exports = {
   updateCategories,
   updateManufacturers,
   deleteById,
+  getItemsByType,
 };

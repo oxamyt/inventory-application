@@ -17,4 +17,6 @@ typesRouter.get("/:id/delete", typeController.getDeleteForm);
 
 typesRouter.post("/:id/delete", typeController.postDeleteType);
 
+typesRouter.get("/:id", typeController.getItemsByType);
+
 module.exports = typesRouter;

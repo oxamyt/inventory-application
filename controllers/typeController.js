@@ -108,6 +108,16 @@ async function postDeleteType(req, res) {
   }
 }
 
+async function getItemsByType(req, res) {
+  try {
+    const typeId = req.params.id;
+    const items = await db.getItemsByType(typeId);
+    res.render("itemsByType", { items });
+  } catch (err) {
+    console.error(error);
+  }
+}
+
 module.exports = {
   typesGet,
   getForm,
@@ -117,4 +127,5 @@ module.exports = {
   postDeleteType,
   postDeleteType,
   getDeleteForm,
+  getItemsByType,
 };
