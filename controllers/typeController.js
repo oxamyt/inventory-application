@@ -14,7 +14,11 @@ async function typesGet(req, res) {
 
 async function getForm(req, res) {
   try {
-    res.render("typesForm");
+    res.render("genericForm", {
+      title: "Types Form",
+      action: "types",
+      buttonText: "Create Type",
+    });
   } catch (err) {
     console.error(err);
   }

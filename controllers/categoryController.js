@@ -14,7 +14,11 @@ async function categoriesGet(req, res) {
 
 async function getForm(req, res) {
   try {
-    res.render("categoriesForm");
+    res.render("genericForm", {
+      title: "Categories Form",
+      action: "categories",
+      buttonText: "Create Category",
+    });
   } catch (err) {
     console.error(err);
   }
