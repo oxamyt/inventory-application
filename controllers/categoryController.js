@@ -69,7 +69,35 @@ async function postUpdateForm(req, res) {
   }
 }
 
+async function getDeleteForm(req, res) {
+  try {
+    const categoryResult = await db.getById(req.params.id, "categories");
+    const category = categoryResult[0];
+    res.render("deleteForm", {
+      entity: category,
+      path: "categories",
+      errors: [],
+    });
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 async function postDeleteCategory(req, res) {
+  await validatePassword[0].run(req);
+
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const categoryResult = await db.getById(req.params.id, "categories");
+    const category = categoryResult[0];
+    return res.render("deleteForm", {
+      entity: category,
+      path: "categories",
+      errors: errors.array(),
+    });
+  }
+
   try {
     const id = req.params.id;
     await db.deleteById(id, "categories");
@@ -86,4 +114,5 @@ module.exports = {
   getUpdateForm,
   postUpdateForm,
   postDeleteCategory,
+  getDeleteForm,
 };

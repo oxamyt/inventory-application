@@ -13,6 +13,8 @@ manufacturersRouter.get("/:id/edit", manufacturerController.getUpdateForm);
 
 manufacturersRouter.post("/:id/edit", manufacturerController.postUpdateForm);
 
+manufacturersRouter.get("/:id/delete", manufacturerController.getDeleteForm);
+
 manufacturersRouter.post(
   "/:id/delete",
   manufacturerController.postDeleteManufacturer

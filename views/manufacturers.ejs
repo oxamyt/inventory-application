@@ -15,13 +15,12 @@
           src="<%= manufacturer.image_url %>"
           alt="Image of <%= manufacturer.name %>"
         />
-        <form
-          action="/manufacturers/<%= manufacturer.id %>/delete"
-          method="post"
+        <a href="/manufacturers/<%= manufacturer.id %>/delete"
+          >Delete Manufacturer</a
         >
-          <button type="submit">Delete manufacturer</button>
-        </form>
-        <a href="/manufacturers/<%= manufacturer.id %>/edit">Update item</a>
+        <a href="/manufacturers/<%= manufacturer.id %>/edit"
+          >Update Manufacturer</a
+        >
       </li>
       <% }) %>
     </ul>

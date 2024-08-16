@@ -13,6 +13,8 @@ categoriesRouter.get("/:id/edit", categoryController.getUpdateForm);
 
 categoriesRouter.post("/:id/edit", categoryController.postUpdateForm);
 
+categoriesRouter.get("/:id/delete", categoryController.getDeleteForm);
+
 categoriesRouter.post("/:id/delete", categoryController.postDeleteCategory);
 
 module.exports = categoriesRouter;

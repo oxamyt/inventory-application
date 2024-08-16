@@ -70,7 +70,31 @@ async function postUpdateForm(req, res) {
   }
 }
 
+async function getDeleteForm(req, res) {
+  try {
+    const typeResult = await db.getById(req.params.id, "types");
+    const type = typeResult[0];
+    res.render("deleteForm", { entity: type, path: "types", errors: [] });
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 async function postDeleteType(req, res) {
+  await validatePassword[0].run(req);
+
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const typeResult = await db.getById(req.params.id, "types");
+    const type = typeResult[0];
+    return res.render("deleteForm", {
+      entity: type,
+      path: "types",
+      errors: errors.array(),
+    });
+  }
+
   try {
     const id = req.params.id;
     await db.deleteById(id, "types");
@@ -88,4 +112,5 @@ module.exports = {
   postUpdateForm,
   postDeleteType,
   postDeleteType,
+  getDeleteForm,
 };

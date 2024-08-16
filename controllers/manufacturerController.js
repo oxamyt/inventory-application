@@ -70,7 +70,35 @@ async function postUpdateForm(req, res) {
   }
 }
 
+async function getDeleteForm(req, res) {
+  try {
+    const manufacturerResult = await db.getById(req.params.id, "manufacturers");
+    const manufacturer = manufacturerResult[0];
+    res.render("deleteForm", {
+      entity: manufacturer,
+      path: "manufacturers",
+      errors: [],
+    });
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 async function postDeleteManufacturer(req, res) {
+  await validatePassword[0].run(req);
+
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const manufacturerResult = await db.getById(req.params.id, "manufacturers");
+    const manufacturer = manufacturerResult[0];
+    return res.render("deleteForm", {
+      entity: manufacturer,
+      path: "manufacturers",
+      errors: errors.array(),
+    });
+  }
+
   try {
     const id = req.params.id;
     await db.deleteById(id, "manufacturers");
@@ -87,4 +115,5 @@ module.exports = {
   getUpdateForm,
   postUpdateForm,
   postDeleteManufacturer,
+  getDeleteForm,
 };

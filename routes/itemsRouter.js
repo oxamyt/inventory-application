@@ -13,6 +13,8 @@ itemsRouter.get("/:id/edit", itemController.getUpdateForm);
 
 itemsRouter.post("/:id/edit", itemController.postUpdateForm);
 
+itemsRouter.get("/:id/delete", itemController.getDeleteForm);
+
 itemsRouter.post("/:id/delete", itemController.postDeleteItem);
 
 module.exports = itemsRouter;

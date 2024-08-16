@@ -13,6 +13,8 @@ typesRouter.get("/:id/edit", typeController.getUpdateForm);
 
 typesRouter.post("/:id/edit", typeController.postUpdateForm);
 
+typesRouter.get("/:id/delete", typeController.getDeleteForm);
+
 typesRouter.post("/:id/delete", typeController.postDeleteType);
 
 module.exports = typesRouter;
