@@ -16,6 +16,7 @@
           src="<%= category.image_url %>"
           alt="image of <%= category.name %>"
         />
+        <a href="/categories/<%= category.id %>">Show items by category</a>
         <a href="/categories/<%= category.id %>/delete">Delete Category</a>
         <a href="/categories/<%= category.id %>/edit">Update Category</a>
       </li>

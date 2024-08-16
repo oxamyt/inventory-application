@@ -110,9 +110,15 @@ async function postDeleteType(req, res) {
 
 async function getItemsByType(req, res) {
   try {
-    const typeId = req.params.id;
-    const items = await db.getItemsByType(typeId);
-    res.render("itemsByType", { items });
+    const type_id = req.params.id;
+    const items = await db.getItemsByEntity(type_id, "type_id");
+    const typeResult = await db.getById(type_id, "types");
+    const type = typeResult[0];
+    res.render("genericList", {
+      items,
+      entityName: type.name,
+      title: "Items by Type",
+    });
   } catch (err) {
     console.error(error);
   }

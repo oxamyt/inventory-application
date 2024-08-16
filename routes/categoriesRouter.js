@@ -17,4 +17,6 @@ categoriesRouter.get("/:id/delete", categoryController.getDeleteForm);
 
 categoriesRouter.post("/:id/delete", categoryController.postDeleteCategory);
 
+categoriesRouter.get("/:id", categoryController.getItemsByCategory);
+
 module.exports = categoriesRouter;

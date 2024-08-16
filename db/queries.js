@@ -146,13 +146,13 @@ async function deleteById(id, table) {
   await pool.query(deleteQuery, [id]);
 }
 
-async function getItemsByType(typeId) {
+async function getItemsByEntity(entityId, entity) {
   try {
-    const getQuery = `SELECT * FROM items WHERE type_id = $1`;
-    const { rows } = await pool.query(getQuery, [typeId]);
+    const getQuery = `SELECT * FROM items WHERE ${entity} = $1`;
+    const { rows } = await pool.query(getQuery, [entityId]);
     return rows;
   } catch (err) {
-    console.error("Error fetching items by type:", err);
+    console.error("Error fetching items:", err);
     throw err;
   }
 }
@@ -173,5 +173,5 @@ module.exports = {
   updateCategories,
   updateManufacturers,
   deleteById,
-  getItemsByType,
+  getItemsByEntity,
 };

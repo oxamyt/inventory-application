@@ -111,6 +111,22 @@ async function postDeleteCategory(req, res) {
   }
 }
 
+async function getItemsByCategory(req, res) {
+  try {
+    const category_id = req.params.id;
+    const items = await db.getItemsByEntity(category_id, "category_id");
+    const categoryResult = await db.getById(category_id, "categories");
+    const category = categoryResult[0];
+    res.render("genericList", {
+      items,
+      entityName: category.name,
+      title: "Items by Category",
+    });
+  } catch (err) {
+    console.error(error);
+  }
+}
+
 module.exports = {
   categoriesGet,
   getForm,
@@ -119,4 +135,5 @@ module.exports = {
   postUpdateForm,
   postDeleteCategory,
   getDeleteForm,
+  getItemsByCategory,
 };
