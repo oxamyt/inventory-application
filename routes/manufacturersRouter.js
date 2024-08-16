@@ -20,4 +20,6 @@ manufacturersRouter.post(
   manufacturerController.postDeleteManufacturer
 );
 
+manufacturersRouter.get("/:id", manufacturerController.getItemsByManufacturer);
+
 module.exports = manufacturersRouter;

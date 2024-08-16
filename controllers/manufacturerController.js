@@ -108,6 +108,25 @@ async function postDeleteManufacturer(req, res) {
   }
 }
 
+async function getItemsByManufacturer(req, res) {
+  try {
+    const manufacturer_id = req.params.id;
+    const items = await db.getItemsByEntity(manufacturer_id, "manufacturer_id");
+    const manufacturerResult = await db.getById(
+      manufacturer_id,
+      "manufacturers"
+    );
+    const manufacturer = manufacturerResult[0];
+    res.render("genericList", {
+      items,
+      entityName: manufacturer.name,
+      title: "Items by Manufacturer",
+    });
+  } catch (err) {
+    console.error(error);
+  }
+}
+
 module.exports = {
   manufacturersGet,
   getForm,
@@ -116,4 +135,5 @@ module.exports = {
   postUpdateForm,
   postDeleteManufacturer,
   getDeleteForm,
+  getItemsByManufacturer,
 };
