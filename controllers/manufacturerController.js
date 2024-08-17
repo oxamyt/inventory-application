@@ -50,18 +50,21 @@ async function postUpdateForm(req, res) {
 
   const errors = validationResult(req);
 
+  const { name, country, image_url } = req.body;
+
   if (!errors.isEmpty()) {
-    const manufacturerResult = await db.getById(req.params.id, "manufacturers");
-    const manufacturer = manufacturerResult[0];
     return res.render("manufacturerUpdateForm", {
-      manufacturer,
+      manufacturer: {
+        id: req.params.id,
+        name,
+        country,
+        image_url,
+      },
       errors: errors.array(),
     });
   }
 
   try {
-    const { name, country, image_url } = req.body;
-
     await db.updateManufacturers(req.params.id, name, country, image_url);
 
     res.redirect("/manufacturers");

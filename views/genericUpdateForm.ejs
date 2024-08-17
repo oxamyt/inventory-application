@@ -6,19 +6,19 @@
     <title>Update Type</title>
   </head>
   <body>
-    <form action="/types/<%= type.id %>/edit" method="post">
+    <form action="/<%= action %>/<%= entity.id %>/edit" method="post">
       <label for="name">Name:</label>
       <input
         type="text"
         id="name"
         name="name"
-        value="<%= type.name %>"
+        value="<%= entity.name %>"
         required
       />
 
       <label for="description">Description:</label>
       <textarea id="description" name="description" required>
-<%= type.description %></textarea
+<%= entity.description %></textarea
       >
 
       <label for="image_url">Image URL:</label>
@@ -26,7 +26,7 @@
         type="text"
         id="image_url"
         name="image_url"
-        value="<%= type.image_url %>"
+        value="<%= entity.image_url %>"
         required
       />
 
@@ -38,7 +38,7 @@
       </div>
       <% } %>
 
-      <button type="submit">Update Type</button>
+      <button type="submit"><%= buttonText %></button>
     </form>
   </body>
 </html>

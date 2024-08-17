@@ -1,25 +1,25 @@
 const pool = require("./pool");
 
 async function getItems() {
-  const getQuery = "SELECT * FROM items";
+  const getQuery = "SELECT * FROM items ORDER BY id";
   const { rows } = await pool.query(getQuery);
   return rows;
 }
 
 async function getCategories() {
-  const getQuery = "SELECT * FROM categories";
+  const getQuery = "SELECT * FROM categories ORDER BY id";
   const { rows } = await pool.query(getQuery);
   return rows;
 }
 
 async function getManufacturers() {
-  const getQuery = "SELECT * FROM manufacturers";
+  const getQuery = "SELECT * FROM manufacturers ORDER BY id";
   const { rows } = await pool.query(getQuery);
   return rows;
 }
 
 async function getTypes() {
-  const getQuery = "SELECT * FROM types";
+  const getQuery = "SELECT * FROM types ORDER BY id";
   const { rows } = await pool.query(getQuery);
   return rows;
 }

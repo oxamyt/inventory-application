@@ -77,12 +77,31 @@ async function postUpdateForm(req, res) {
 
   const errors = validationResult(req);
 
+  const {
+    name,
+    description,
+    price,
+    stock_quantity,
+    category_id,
+    manufacturer_id,
+    type_id,
+    image_url,
+  } = req.body;
+
   if (!errors.isEmpty()) {
     const { categories, manufacturers, types } = await db.getFormData();
-    const itemResult = await db.getById(req.params.id, "items");
-    const item = itemResult[0];
     return res.render("itemUpdateForm", {
-      item,
+      item: {
+        id: req.params.id,
+        name,
+        description,
+        price,
+        stock_quantity,
+        category_id,
+        manufacturer_id,
+        type_id,
+        image_url,
+      },
       categories: categories.rows,
       manufacturers: manufacturers.rows,
       types: types.rows,
@@ -91,17 +110,6 @@ async function postUpdateForm(req, res) {
   }
 
   try {
-    const {
-      name,
-      description,
-      price,
-      stock_quantity,
-      category_id,
-      manufacturer_id,
-      type_id,
-      image_url,
-    } = req.body;
-
     await db.updateItems(
       req.params.id,
       name,

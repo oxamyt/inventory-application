@@ -39,8 +39,10 @@ async function getUpdateForm(req, res) {
   try {
     const categoryResult = await db.getById(req.params.id, "categories");
     const category = categoryResult[0];
-    res.render("categoryUpdateForm", {
-      category: category,
+    res.render("genericUpdateForm", {
+      entity: category,
+      action: "categories",
+      buttonText: "Update Category",
       errors: [],
     });
   } catch (err) {
@@ -53,18 +55,18 @@ async function postUpdateForm(req, res) {
 
   const errors = validationResult(req);
 
+  const { name, description, image_url } = req.body;
+
   if (!errors.isEmpty()) {
-    const categoryResult = await db.getById(req.params.id, "categories");
-    const category = categoryResult[0];
-    return res.render("categoryUpdateForm", {
-      category,
+    return res.render("genericUpdateForm", {
+      entity: { id: req.params.id, name, description, image_url },
+      action: "categories",
+      buttonText: "Update Category",
       errors: errors.array(),
     });
   }
 
   try {
-    const { name, description, image_url } = req.body;
-
     await db.updateCategories(req.params.id, name, description, image_url);
 
     res.redirect("/categories");

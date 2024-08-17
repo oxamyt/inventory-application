@@ -40,8 +40,10 @@ async function getUpdateForm(req, res) {
   try {
     const typeResult = await db.getById(req.params.id, "types");
     const type = typeResult[0];
-    res.render("typeUpdateForm", {
-      type: type,
+    res.render("genericUpdateForm", {
+      entity: type,
+      action: "types",
+      buttonText: "Update Type",
       errors: [],
     });
   } catch (err) {
@@ -54,18 +56,18 @@ async function postUpdateForm(req, res) {
 
   const errors = validationResult(req);
 
+  const { name, description, image_url } = req.body;
+
   if (!errors.isEmpty()) {
-    const typeResult = await db.getById(req.params.id, "types");
-    const type = typeResult[0];
-    return res.render("typeUpdateForm", {
-      type,
+    return res.render("genericUpdateForm", {
+      entity: { id: req.params.id, name, description, image_url },
+      action: "types",
+      buttonText: "Update Type",
       errors: errors.array(),
     });
   }
 
   try {
-    const { name, description, image_url } = req.body;
-
     await db.updateTypes(req.params.id, name, description, image_url);
 
     res.redirect("/types");
