@@ -3,6 +3,7 @@ html {
 }
 body {
   min-height: 100%;
+  font-family: "Roboto", "sans-serif";
 }
 
 *,
@@ -43,4 +44,96 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  --header-background-color: #18181b;
+  --button-background-color: #18181b;
+  --main-font-color: #ffffff;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .container {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: var(--header-background-color);
+    padding: 0.5rem 0 0.5rem;
+    gap: 5px;
+    box-shadow: 9px 13px 25px 4px rgba(0, 0, 0, 0.55);
+    z-index: 1;
+  }
+
+  .header-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--main-font-color);
+    position: relative;
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000;
+  }
+
+  .svg {
+    width: 2rem;
+  }
+
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../images/homepage-background.jpg);
+    background-size: cover;
+  }
+
+  .inventory-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: rgba(46, 46, 46, 0.9);
+    color: var(--main-font-color);
+    width: 90%;
+  }
+
+  .homepage-text {
+    padding: 1rem;
+  }
+
+  .explore {
+    text-decoration: none;
+    border: 0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--button-background-color);
+    color: var(--main-font-color);
+    padding: 0.5rem;
+  }
 }

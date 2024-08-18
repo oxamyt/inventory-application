@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
     <title>Inventory Homepage</title>
   </head>
   <body>
-    <h1>Homepage</h1>
-    <a href="/items">Items</a>
-    <a href="/types">Types</a>
-    <a href="/categories">Categories</a>
-    <a href="/manufacturers">Manufacturers</a>
+    <div class="container">
+      <%- include('partials/header') %> <%- include('partials/homepage') %>
+    </div>
   </body>
 </html>
