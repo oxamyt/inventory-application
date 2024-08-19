@@ -4,19 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
   </head>
   <body>
-    <form action="/<%= action %>/new" method="post">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required />
+    <div class="container">
+      <%- include('partials/header') %>
+      <main class="form-main">
+        <form
+          class="add-generic-form"
+          action="/<%= action %>/new"
+          method="post"
+        >
+          <label class="generic-label" for="name">Name:</label>
+          <input class="add-input" type="text" id="name" name="name" required />
 
-      <label for="description">Description:</label>
-      <textarea id="description" name="description" required></textarea>
+          <label class="generic-label" for="description">Description:</label>
+          <textarea
+            class="add-input"
+            id="description"
+            name="description"
+            required
+            maxlength="100"
+          ></textarea>
 
-      <label for="image_url">Image URL:</label>
-      <input type="text" id="image_url" name="image_url" required />
+          <label class="generic-label" for="image_url">Image URL:</label>
+          <input
+            class="add-input"
+            type="text"
+            id="image_url"
+            name="image_url"
+            required
+          />
 
-      <button type="submit"><%= buttonText %>y</button>
-    </form>
+          <button class="submit-btn" type="submit"><%= buttonText %></button>
+        </form>
+      </main>
+    </div>
+    <script src="/javascript/dropdown.js" defer></script>
   </body>
 </html>

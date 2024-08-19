@@ -46,6 +46,10 @@ h6 {
   isolation: isolate;
 }
 
+textarea {
+  resize: none;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -55,6 +59,7 @@ a {
   --header-background-color: #18181b;
   --button-background-color: #18181b;
   --main-font-color: #ffffff;
+  --alternative-font-color: #000000;
 }
 
 @font-face {
@@ -177,5 +182,49 @@ a {
     background-color: var(--button-background-color);
     color: var(--main-font-color);
     padding: 0.5rem;
+  }
+
+  .form-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../images/homepage-background.jpg);
+    background-size: cover;
+    color: var(--alternative-font-color);
+  }
+
+  .generic-label {
+    font-size: 1.5rem;
+  }
+
+  .add-generic-form {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-font-color);
+    padding: 2rem;
+    border-radius: 12px;
+  }
+
+  .add-input {
+    font-size: 1.2rem;
+    border: 2px solid #92dce5;
+    border-radius: 6px;
+    outline: none;
+    background-color: #f5f5f5;
+    color: var(--alternative-font-color);
+  }
+
+  .add-input:valid {
+    border: 2px solid #6bc51c;
+  }
+
+  .submit-btn {
+    border: 0;
+    border-radius: 9px;
+    margin-top: 1rem;
+    padding: 1.2rem;
+    font-size: 1.2rem;
+    color: var(--alternative-font-color);
+    background-color: #d0d0d0;
   }
 }
