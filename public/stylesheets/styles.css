@@ -231,4 +231,8 @@ a {
     color: var(--alternative-font-color);
     background-color: var(--submit-button-background-color);
   }
+
+  .select {
+    margin-bottom: 1rem;
+  }
 }

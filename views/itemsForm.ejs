@@ -4,44 +4,85 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Items Form</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
   </head>
   <body>
-    <form action="/items/new" method="post">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required />
+    <div class="container">
+      <%- include('partials/header') %>
+      <main class="form-main">
+        <form class="add-generic-form" action="/items/new" method="post">
+          <label class="generic-label" for="name">Name:</label>
+          <input class="add-input" type="text" id="name" name="name" required />
 
-      <label for="description">Description:</label>
-      <textarea id="description" name="description" required></textarea>
+          <label class="generic-label" for="description">Description:</label>
+          <textarea
+            class="add-input"
+            id="description"
+            name="description"
+            required
+          ></textarea>
 
-      <label for="price">Price:</label>
-      <input type="number" id="price" name="price" step="0.01" required />
+          <label class="generic-label" for="price">Price:</label>
+          <input
+            class="add-input"
+            type="number"
+            id="price"
+            name="price"
+            step="0.01"
+            required
+          />
 
-      <label for="stock_quantity">Stock Quantity:</label>
-      <input type="number" id="stock_quantity" name="stock_quantity" required />
+          <label class="generic-label" for="stock_quantity"
+            >Stock Quantity:</label
+          >
+          <input
+            class="add-input"
+            type="number"
+            id="stock_quantity"
+            name="stock_quantity"
+            required
+          />
 
-      <label for="category_id">Category:</label>
-      <select id="category_id" name="category_id" required>
-        <% categories.forEach(category => { %>
-        <option value="<%= category.id %>"><%= category.name %></option>
-        <% }) %>
-      </select>
+          <label class="generic-label" for="category_id">Category:</label>
+          <select class="select" id="category_id" name="category_id" required>
+            <% categories.forEach(category => { %>
+            <option value="<%= category.id %>"><%= category.name %></option>
+            <% }) %>
+          </select>
 
-      <select id="manufacturer_id" name="manufacturer_id" required>
-        <% manufacturers.forEach(manufacturer => { %>
-        <option value="<%= manufacturer.id %>"><%= manufacturer.name %></option>
-        <% }) %>
-      </select>
+          <select
+            class="select"
+            id="manufacturer_id"
+            name="manufacturer_id"
+            required
+          >
+            <% manufacturers.forEach(manufacturer => { %>
+            <option value="<%= manufacturer.id %>">
+              <%= manufacturer.name %>
+            </option>
+            <% }) %>
+          </select>
 
-      <select id="type_id" name="type_id" required>
-        <% types.forEach(type => { %>
-        <option value="<%= type.id %>"><%= type.name %></option>
-        <% }) %>
-      </select>
+          <select class="select" id="type_id" name="type_id" required>
+            <% types.forEach(type => { %>
+            <option value="<%= type.id %>"><%= type.name %></option>
+            <% }) %>
+          </select>
 
-      <label for="image_url">Image URL:</label>
-      <input type="text" id="image_url" name="image_url" required />
+          <label class="generic-label" for="image_url">Image URL:</label>
+          <input
+            class="add-input"
+            type="text"
+            id="image_url"
+            name="image_url"
+            required
+          />
 
-      <button type="submit">Add Item</button>
-    </form>
+          <button class="submit-btn" type="submit">Add Item</button>
+        </form>
+      </main>
+    </div>
+
+    <script src="/javascript/dropdown.js" defer></script>
   </body>
 </html>
