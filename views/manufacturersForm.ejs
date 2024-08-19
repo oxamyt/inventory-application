@@ -4,19 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manufacturers Form</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
   </head>
   <body>
-    <form action="/manufacturers/new" method="post">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required />
+    <div class="container">
+      <%- include('partials/header') %>
+      <main class="form-main">
+        <form
+          class="add-generic-form"
+          action="/manufacturers/new"
+          method="post"
+        >
+          <label class="generic-label" for="name">Name:</label>
+          <input class="add-input" type="text" id="name" name="name" required />
 
-      <label for="country">Country:</label>
-      <input type="text" id="country" name="country" required />
+          <label class="generic-label" for="country">Country:</label>
+          <input
+            class="add-input"
+            type="text"
+            id="country"
+            name="country"
+            required
+          />
 
-      <label for="image_url">Image URL:</label>
-      <input type="text" id="image_url" name="image_url" required />
+          <label class="generic-label" for="image_url">Image URL:</label>
+          <input
+            class="add-input"
+            type="text"
+            id="image_url"
+            name="image_url"
+            required
+          />
 
-      <button type="submit">Add Manufacturer</button>
-    </form>
+          <button class="submit-btn" type="submit">Add Manufacturer</button>
+        </form>
+      </main>
+    </div>
+    <script src="/javascript/dropdown.js" defer></script>
   </body>
 </html>
