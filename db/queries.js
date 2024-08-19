@@ -6,6 +6,12 @@ async function getItems() {
   return rows;
 }
 
+async function getEntities(table) {
+  const getQuery = `SELECT * FROM ${table} ORDER BY id`;
+  const { rows } = await pool.query(getQuery);
+  return rows;
+}
+
 async function getCategories() {
   const getQuery = "SELECT * FROM categories ORDER BY id";
   const { rows } = await pool.query(getQuery);
@@ -159,6 +165,7 @@ async function getItemsByEntity(entityId, entity) {
 
 module.exports = {
   getItems,
+  getEntities,
   getCategories,
   getManufacturers,
   getTypes,

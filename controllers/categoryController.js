@@ -5,8 +5,11 @@ const { validationResult } = require("express-validator");
 
 async function categoriesGet(req, res) {
   try {
-    const categories = await db.getCategories();
-    res.render("categories", { categories: categories });
+    const categories = await db.getEntities("categories");
+    res.render("genericEntitiesList", {
+      entities: categories,
+      label: "Category",
+    });
   } catch (err) {
     console.error(err);
   }

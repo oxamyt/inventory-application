@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= label %> list</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <main class="list-main">
+        <ul class="list">
+          <% entities.forEach((entity) => { %>
+          <li class="list-item">
+            <h1><%= label %>: <%= entity.name %></h1>
+            <h2><%= entity.description %></h2>
+            <img
+              src="<%= entity.image_url %>"
+              alt="image of <%= entity.name %>"
+            />
+          </li>
+          <% }) %>
+        </ul>
+      </main>
+    </div>
+    <script src="/javascript/dropdown.js" defer></script>
+  </body>
+</html>
