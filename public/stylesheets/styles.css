@@ -305,4 +305,8 @@ ul {
     padding: 1rem;
     border-radius: 12px;
   }
+
+  .errors {
+    color: var(--delete-button-background-color);
+  }
 }

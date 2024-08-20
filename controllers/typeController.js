@@ -47,7 +47,7 @@ async function getUpdateForm(req, res) {
     res.render("genericUpdateForm", {
       entity: type,
       action: "types",
-      buttonText: "Update Type",
+      title: "Update Type",
       errors: [],
     });
   } catch (err) {
@@ -66,7 +66,7 @@ async function postUpdateForm(req, res) {
     return res.render("genericUpdateForm", {
       entity: { id: req.params.id, name, description, image_url },
       action: "types",
-      buttonText: "Update Type",
+      title: "Update Type",
       errors: errors.array(),
     });
   }

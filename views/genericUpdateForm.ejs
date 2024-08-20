@@ -3,42 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Update Type</title>
+    <title><%- title %></title>
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
   </head>
   <body>
-    <form action="/<%= action %>/<%= entity.id %>/edit" method="post">
-      <label for="name">Name:</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        value="<%= entity.name %>"
-        required
-      />
+    <div class="container">
+      <%- include('partials/header') %>
+      <main class="form-main">
+        <form
+          class="add-generic-form"
+          action="/<%= action %>/<%= entity.id %>/edit"
+          method="post"
+        >
+          <label class="generic-label" for="name">Name:</label>
+          <input
+            class="add-input"
+            type="text"
+            id="name"
+            name="name"
+            value="<%= entity.name %>"
+            required
+          />
 
-      <label for="description">Description:</label>
-      <textarea id="description" name="description" required>
+          <label class="generic-label" for="description">Description:</label>
+          <textarea
+            class="add-input"
+            id="description"
+            name="description"
+            required
+          >
 <%= entity.description %></textarea
-      >
+          >
 
-      <label for="image_url">Image URL:</label>
-      <input
-        type="text"
-        id="image_url"
-        name="image_url"
-        value="<%= entity.image_url %>"
-        required
-      />
+          <label class="generic-label" for="image_url">Image URL:</label>
+          <input
+            class="add-input"
+            type="text"
+            id="image_url"
+            name="image_url"
+            value="<%= entity.image_url %>"
+            required
+          />
 
-      <%- include('partials/password') %> <% if (errors) { %>
-      <div class="errors">
-        <% errors.forEach(error => { %>
-        <p><%= error.msg %></p>
-        <% }) %>
-      </div>
-      <% } %>
+          <%- include('partials/password') %> <% if (errors) { %>
+          <div class="errors">
+            <% errors.forEach(error => { %>
+            <p><%= error.msg %></p>
+            <% }) %>
+          </div>
+          <% } %>
 
-      <button type="submit"><%= buttonText %></button>
-    </form>
+          <button class="submit-btn" type="submit"><%- title %></button>
+        </form>
+      </main>
+    </div>
   </body>
 </html>
