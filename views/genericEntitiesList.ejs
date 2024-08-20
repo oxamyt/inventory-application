@@ -8,13 +8,15 @@
   </head>
   <body>
     <div class="container">
+      <%- include('partials/header') %>
       <main class="list-main">
         <ul class="list">
           <% entities.forEach((entity) => { %>
           <li class="list-item">
-            <h1><%= label %>: <%= entity.name %></h1>
-            <h2><%= entity.description %></h2>
+            <h1 class="heading"><%= label %>: <%= entity.name %></h1>
+            <h2 class="description"><%= entity.description %></h2>
             <img
+              class="img"
               src="<%= entity.image_url %>"
               alt="image of <%= entity.name %>"
             />

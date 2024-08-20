@@ -4,29 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manufacturers List</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
   </head>
   <body>
-    <a href="/manufacturers/new">Create new manufacturer</a>
-    <ul>
-      <% manufacturers.forEach((manufacturer) => { %>
-      <li class="manufacturer">
-        <h1>Manufacturer: <%= manufacturer.name %></h1>
-        <h2>Country: <%= manufacturer.country %></h2>
-        <img
-          src="<%= manufacturer.image_url %>"
-          alt="Image of <%= manufacturer.name %>"
-        />
-        <a href="/manufacturers/<%= manufacturer.id %>"
-          >Show items by manufacturer</a
-        >
-        <a href="/manufacturers/<%= manufacturer.id %>/delete"
-          >Delete Manufacturer</a
-        >
-        <a href="/manufacturers/<%= manufacturer.id %>/edit"
-          >Update Manufacturer</a
-        >
-      </li>
-      <% }) %>
-    </ul>
+    <div class="container">
+      <%- include('partials/header') %>
+      <main class="list-main">
+        <ul class="list">
+          <% manufacturers.forEach((manufacturer) => { %>
+          <li class="list-item">
+            <h1 class="heading">Manufacturer: <%= manufacturer.name %></h1>
+            <h2 class="description">Country: <%= manufacturer.country %></h2>
+            <img
+              class="img"
+              src="<%= manufacturer.image_url %>"
+              alt="Image of <%= manufacturer.name %>"
+            />
+          </li>
+          <% }) %>
+        </ul>
+      </main>
+    </div>
+    <script src="/javascript/dropdown.js" defer></script>
   </body>
 </html>

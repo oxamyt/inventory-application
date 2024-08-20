@@ -50,6 +50,9 @@
             <% }) %>
           </select>
 
+          <label class="generic-label" for="manufacturer_id"
+            >Manufacturer:</label
+          >
           <select
             class="select"
             id="manufacturer_id"
@@ -63,6 +66,7 @@
             <% }) %>
           </select>
 
+          <label class="generic-label" for="type_id">Type:</label>
           <select class="select" id="type_id" name="type_id" required>
             <% types.forEach(type => { %>
             <option value="<%= type.id %>"><%= type.name %></option>

@@ -55,6 +55,11 @@ a {
   color: inherit;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+}
+
 :root {
   --header-background-color: #18181b;
   --button-background-color: #18181b;
@@ -188,13 +193,20 @@ a {
     padding: 0.5rem;
   }
 
-  .form-main {
+  .form-main,
+  .list-main {
     display: flex;
     justify-content: center;
     align-items: center;
     background: url(../images/homepage-background.jpg);
     background-size: cover;
     color: var(--alternative-font-color);
+  }
+
+  .list-main {
+    background: url(../images/list-background.jpg);
+    background-size: cover;
+    color: var(--main-font-color);
   }
 
   .generic-label {
@@ -234,5 +246,43 @@ a {
 
   .select {
     margin-bottom: 1rem;
+  }
+
+  .list {
+    display: grid;
+    justify-items: center;
+    grid-template-rows: auto 1fr;
+
+    margin-top: 2rem;
+  }
+
+  .list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: rgba(46, 46, 46, 0.8);
+    color: var(--main-font-color);
+    width: 90%;
+    animation-name: slidein;
+    animation-duration: 0.3s;
+    align-items: center;
+    background-color: var(--main-font-color);
+    color: var(--alternative-font-color);
+    margin-bottom: 1rem;
+  }
+
+  .img {
+    width: 20rem;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
   }
 }
