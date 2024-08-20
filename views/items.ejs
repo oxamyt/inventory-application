@@ -4,21 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Items List</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
   </head>
   <body>
-    <a href="/items/new">Create new item</a>
-    <ul>
-      <% items.forEach((item) => { %>
-      <li class="item">
-        <h1>Item: <%= item.name %></h1>
-        <h2>Price: <%= item.price %>$</h2>
-        <p>Description: <%= item.description %></p>
-        <h2>Stock Quantity: <%= item.stock_quantity %></h2>
-        <img src="<%= item.image_url %>" alt="image of <%= item.name %>" />
-        <a href="/items/<%= item.id %>/delete">Delete item</a>
-        <a href="/items/<%= item.id %>/edit">Update item</a>
-      </li>
-      <% }) %>
-    </ul>
+    <div class="container">
+      <%- include('partials/header') %>
+      <main class="list-main">
+        <ul class="list">
+          <% items.forEach((item) => { %>
+          <li class="list-item">
+            <h1 class="heading">Item: <%= item.name %></h1>
+            <h2 class="description">Price: <%= item.price %>$</h2>
+            <p><%= item.description %></p>
+            <h2 class="description">
+              Stock Quantity: <%= item.stock_quantity %>
+            </h2>
+            <img
+              class="img"
+              src="<%= item.image_url %>"
+              alt="image of <%= item.name %>"
+            />
+          </li>
+          <% }) %>
+        </ul>
+      </main>
+    </div>
   </body>
 </html>
