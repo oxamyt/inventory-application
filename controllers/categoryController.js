@@ -9,6 +9,7 @@ async function categoriesGet(req, res) {
     res.render("genericEntitiesList", {
       entities: categories,
       label: "Category",
+      action: "categories",
     });
   } catch (err) {
     console.error(err);

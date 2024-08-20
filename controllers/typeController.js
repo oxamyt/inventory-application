@@ -6,7 +6,11 @@ const { validationResult } = require("express-validator");
 async function typesGet(req, res) {
   try {
     const types = await db.getEntities("types");
-    res.render("genericEntitiesList", { entities: types, label: "Type" });
+    res.render("genericEntitiesList", {
+      entities: types,
+      label: "Type",
+      action: "types",
+    });
   } catch (err) {
     console.error(err);
   }

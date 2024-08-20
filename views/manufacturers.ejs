@@ -20,6 +20,18 @@
               src="<%= manufacturer.image_url %>"
               alt="Image of <%= manufacturer.name %>"
             />
+            <div class="buttons">
+              <a
+                class="delete"
+                href="/manufacturers/<%= manufacturer.id %>/delete"
+                >Delete Item</a
+              >
+              <a
+                class="update"
+                href="/manufacturers/<%= manufacturer.id %>/edit"
+                >Update Item</a
+              >
+            </div>
           </li>
           <% }) %>
         </ul>
