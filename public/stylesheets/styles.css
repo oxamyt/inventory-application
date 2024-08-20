@@ -69,6 +69,8 @@ ul {
   --input-border-color: #92dce5;
   --input-background-color: #f5f5f5;
   --submit-button-background-color: #d0d0d0;
+  --delete-button-background-color: #c1121f;
+  --update-button-background-color: #0077b6;
 }
 
 @font-face {
@@ -284,5 +286,23 @@ ul {
 
   .description {
     font-size: 1rem;
+  }
+
+  .buttons {
+    margin-top: 1rem;
+  }
+
+  .delete {
+    background-color: var(--delete-button-background-color);
+    color: var(--main-font-color);
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .update {
+    background-color: var(--update-button-background-color);
+    color: var(--main-font-color);
+    padding: 1rem;
+    border-radius: 12px;
   }
 }

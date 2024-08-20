@@ -24,6 +24,14 @@
               src="<%= item.image_url %>"
               alt="image of <%= item.name %>"
             />
+            <div class="buttons">
+              <a class="delete" href="/items/<%= item.id %>/delete"
+                >Delete Item</a
+              >
+              <a class="update" href="/items/<%= item.id %>/edit"
+                >Update Item</a
+              >
+            </div>
           </li>
           <% }) %>
         </ul>
