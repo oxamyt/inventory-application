@@ -99,6 +99,8 @@ ul {
     display: grid;
     grid-template-rows: auto 1fr;
     height: 100vh;
+    background: url(../images/background.webp);
+    background-size: cover;
   }
 
   .header {
@@ -178,8 +180,6 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(../images/background.webp);
-    background-size: cover;
   }
 
   .inventory-box {
@@ -217,9 +217,9 @@ ul {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: url(../images/homepage-background.jpg);
     background-size: cover;
     color: var(--alternative-font-color);
+    background: url(../images/list-background.jpg);
   }
 
   .list-main {
@@ -349,6 +349,26 @@ ul {
     font-weight: bold;
     width: 100%;
   }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(46, 46, 46, 0.8);
+    color: var(--main-font-color);
+  }
+
+  .author {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.6rem;
+  }
+
+  .svg {
+    width: 2rem;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
@@ -356,6 +376,8 @@ ul {
     display: grid;
     grid-template-rows: auto 1fr;
     height: 100vh;
+    background: url(../images/background.webp);
+    background-size: cover;
   }
 
   .header {
@@ -418,8 +440,6 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(../images/background.webp);
-    background-size: cover;
   }
 
   .inventory-box {
@@ -584,6 +604,26 @@ ul {
     font-weight: bold;
     width: 100%;
   }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(46, 46, 46, 0.8);
+    color: var(--main-font-color);
+  }
+
+  .author {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.6rem;
+  }
+
+  .svg {
+    width: 2em;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -591,6 +631,8 @@ ul {
     display: grid;
     grid-template-rows: auto 1fr;
     height: 100vh;
+    background: url(../images/background.webp);
+    background-size: cover;
   }
 
   .header {
@@ -653,8 +695,6 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(../images/background.webp);
-    background-size: cover;
   }
 
   .inventory-box {
@@ -685,6 +725,12 @@ ul {
     background-color: var(--button-background-color);
     color: var(--main-font-color);
     padding: 0.75rem 1rem;
+  }
+
+  .explore:hover {
+    background-color: var(--main-font-color);
+    color: var(--alternative-font-color);
+    transition: 0.5s;
   }
 
   .form-main,
@@ -837,5 +883,25 @@ ul {
     background-color: #000000;
     color: var(--main-font-color);
     transition: 0.3s;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(46, 46, 46, 0.3);
+  }
+
+  .author {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.8rem;
+    color: var(--main-font-color);
+  }
+
+  .svg {
+    width: 2rem;
   }
 }
