@@ -200,6 +200,7 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     background: url(../images/homepage-background.jpg);
     background-size: cover;
     color: var(--alternative-font-color);
@@ -311,5 +312,24 @@ ul {
 
   .errors {
     color: var(--delete-button-background-color);
+  }
+
+  .items-for {
+    background-color: var(--main-font-color);
+    color: var(--alternative-font-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .list-btn {
+    background-color: var(--valid-input-color);
+    color: var(--main-font-color);
+    padding: 1rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+    font-weight: bold;
+    width: 100%;
   }
 }

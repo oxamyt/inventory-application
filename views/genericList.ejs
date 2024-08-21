@@ -4,19 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
   </head>
   <body>
-    <h1>Items for <%= entityName %></h1>
-    <ul>
-      <% items.forEach(item => { %>
-      <li>
-        <strong><%= item.name %></strong><br />
-        Description: <%= item.description %><br />
-        Price: <%= item.price %><br />
-        Stock Quantity: <%= item.stock_quantity %><br />
-        <img src="<%= item.image_url %>" alt="<%= item.name %>" width="100" />
-      </li>
-      <% }) %>
-    </ul>
+    <div class="container">
+      <%- include('partials/header') %>
+      <main class="list-main">
+        <h1 class="items-for">Items for <%= entityName %></h1>
+        <ul class="list">
+          <% items.forEach(item => { %>
+          <li class="list-item">
+            <h1 class="heading"><%= item.name %></h1>
+            <h2 class="description">Description: <%= item.description %></h2>
+            <p class="description">Price: <%= item.price %></p>
+            <p class="description">
+              Stock Quantity: <%= item.stock_quantity %>
+            </p>
+            <img
+              class="img"
+              src="<%= item.image_url %>"
+              alt="<%= item.name %>"
+            />
+            <div class="buttons">
+              <a class="delete" href="/items/<%= item.id %>/delete"
+                >Delete Item</a
+              >
+              <a class="update" href="/items/<%= item.id %>/edit"
+                >Update Item</a
+              >
+            </div>
+          </li>
+          <% }) %>
+        </ul>
+      </main>
+    </div>
+    <script src="/javascript/dropdown.js" defer></script>
   </body>
 </html>

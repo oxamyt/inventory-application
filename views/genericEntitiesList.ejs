@@ -20,6 +20,9 @@
               src="<%= entity.image_url %>"
               alt="image of <%= entity.name %>"
             />
+            <a class="list-btn" href="/<%= action %>/<%= entity.id %>"
+              >List items for <%= entity.name %></a
+            >
             <div class="buttons">
               <a class="delete" href="/<%= action %>/<%= entity.id %>/delete"
                 >Delete <%= label %></a
