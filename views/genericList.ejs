@@ -20,11 +20,20 @@
             <p class="description">
               Stock Quantity: <%= item.stock_quantity %>
             </p>
-            <img
-              class="img"
-              src="<%= item.image_url %>"
-              alt="<%= item.name %>"
-            />
+            <p class="description">Category: <%= item.category_name%></p>
+            <p class="description">Type: <%= item.type_name%></p>
+            <p class="description">
+              Manufacturer: <%= item.manufacturer_name%>
+            </p>
+
+            <p>
+              <img
+                class="img"
+                src="<%= item.image_url %>"
+                alt="<%= item.name %>"
+              />
+            </p>
+
             <div class="buttons">
               <a class="delete" href="/items/<%= item.id %>/delete"
                 >Delete Item</a

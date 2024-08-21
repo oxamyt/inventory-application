@@ -1,7 +1,28 @@
 const pool = require("./pool");
 
 async function getItems() {
-  const getQuery = "SELECT * FROM items ORDER BY id";
+  const getQuery = `
+    SELECT 
+      items.id, 
+      items.name, 
+      items.description, 
+      items.price, 
+      items.stock_quantity, 
+      items.image_url,
+      categories.name AS category_name,
+      manufacturers.name AS manufacturer_name,
+      types.name AS type_name
+    FROM 
+      items
+    JOIN 
+      categories ON items.category_id = categories.id
+    JOIN 
+      manufacturers ON items.manufacturer_id = manufacturers.id
+    JOIN 
+      types ON items.type_id = types.id
+    ORDER BY 
+      items.id;
+  `;
   const { rows } = await pool.query(getQuery);
   return rows;
 }
@@ -154,7 +175,21 @@ async function deleteById(id, table) {
 
 async function getItemsByEntity(entityId, entity) {
   try {
-    const getQuery = `SELECT * FROM items WHERE ${entity} = $1`;
+    const getQuery = `SELECT   items.id, 
+      items.name, 
+      items.description, 
+      items.price, 
+      items.stock_quantity, 
+      items.image_url,
+      categories.name AS category_name,
+      manufacturers.name AS manufacturer_name,
+      types.name AS type_name FROM items  JOIN 
+      categories ON items.category_id = categories.id
+    JOIN 
+      manufacturers ON items.manufacturer_id = manufacturers.id
+    JOIN 
+      types ON items.type_id = types.id WHERE ${entity} = $1  ORDER BY 
+      items.id;`;
     const { rows } = await pool.query(getQuery, [entityId]);
     return rows;
   } catch (err) {

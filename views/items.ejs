@@ -19,6 +19,11 @@
             <h2 class="description">
               Stock Quantity: <%= item.stock_quantity %>
             </h2>
+            <h2 class="description">Category: <%= item.category_name%></h2>
+            <h2 class="description">Type: <%= item.type_name%></h2>
+            <h2 class="description">
+              Manufacturer: <%= item.manufacturer_name%>
+            </h2>
             <img
               class="img"
               src="<%= item.image_url %>"
@@ -37,5 +42,6 @@
         </ul>
       </main>
     </div>
+    <script src="/javascript/dropdown.js" defer></script>
   </body>
 </html>

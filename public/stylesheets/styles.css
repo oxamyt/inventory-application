@@ -287,6 +287,7 @@ ul {
 
   .description {
     font-size: 1rem;
+    font-weight: bold;
   }
 
   .buttons {
@@ -320,7 +321,7 @@ ul {
     padding: 1.5rem;
     border-radius: 12px;
     font-size: 1.5rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
 
   .list-btn {
