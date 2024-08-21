@@ -4,17 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
   </head>
   <body>
-    <form action="/<%= path %>/<%= entity.id %>/delete" method="post">
-      <%- include('partials/password') %> <% if (errors) { %>
-      <div class="errors">
-        <% errors.forEach(error => { %>
-        <p><%= error.msg %></p>
-        <% }) %>
-      </div>
-      <% } %>
-      <button type="submit">Delete item</button>
-    </form>
+    <div class="container">
+      <%- include('partials/header') %>
+      <main class="form-main">
+        <form
+          class="add-generic-form"
+          action="/<%= path %>/<%= entity.id %>/delete"
+          method="post"
+        >
+          <%- include('partials/password') %> <% if (errors) { %>
+          <div class="errors">
+            <% errors.forEach(error => { %>
+            <p><%= error.msg %></p>
+            <% }) %>
+          </div>
+          <% } %>
+          <button class="submit-btn" type="submit">Delete item</button>
+        </form>
+      </main>
+    </div>
   </body>
 </html>
