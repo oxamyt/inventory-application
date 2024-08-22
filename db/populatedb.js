@@ -9,7 +9,6 @@ const populateDB = async () => {
         ('Professional Drones', 'https://images.unsplash.com/photo-1720071702672-d18c69cb475c?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'High-end drones for professionals'),
         ('Accessories', 'https://images.unsplash.com/photo-1486611367184-17759508999c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RHJvbmUlMjBhY2Nlc29jcmllc3xlbnwwfHwwfHx8MA%3D%3D', 'Accessories for drones')
     `;
-    await pool.query(insertCategories);
 
     const insertManufacturers = `
       INSERT INTO Manufacturers (name, image_url, country)
